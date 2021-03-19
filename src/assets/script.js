@@ -10,13 +10,14 @@ const ErrorMessage= document.getElementById("errorM");
 button1.addEventListener("click", async ()=>{
     console.log(input.value);
     let resultjson = await getResult();
-    if(resultjson !== []) {
+    if(resultjson !== undefined) {
         ErrorMessage.style.visibility = "hidden";
         cardScore.innerText =  "Score: " + resultjson.score;
         cardTone.innerText = "Tone: " +resultjson.tone_name;
         cardResult.style.visibility = "visible";
     } else {
         ErrorMessage.style.visibility = "visible";
+        cardResult.style.visibility = "hidden";
     }
 
 })
